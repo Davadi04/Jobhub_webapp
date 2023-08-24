@@ -22,7 +22,7 @@ app.use(
 app.use("/account", userRoute);
 app.use("/jobs", JobsRoute);
 
-app.get("/", (req, res) => {
+app.get("/jobwebappcheck", (req, res) => {
   res.send("App is Running");
 });
 
@@ -32,6 +32,6 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() =>
-    app.listen(PORT, () => console.log(`Server Running on port :${5000}`))
+    app.listen(PORT, () => console.log(`Server Running on port :${PORT}`))
   )
   .catch((error) => console.log(error.message));

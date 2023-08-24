@@ -77,13 +77,6 @@ export const customerSignUp = async (req, res) => {
       PassWord: hashedPassword,
     }).save();
 
-    //  const token = await new TokenSchema({
-    //     userId: result._id,
-    //    token: crypto.randomBytes(32).toString("hex"),
-    //   }).save();
-    //  const url = `${process.env.BASE_URL}account/${result._id}/verify`;
-    // await sendEmail(result.email, "Verify Email", url);
-
     const jwttoken = jwt.sign({ email: result.email, id: result._id }, "test", {
       expiresIn: "30d",
     });
@@ -136,13 +129,6 @@ export const employerSignUp = async (req, res) => {
       ...req.body,
       PassWord: hashedPassword,
     }).save();
-
-    //  const token = await new TokenSchema({
-    //    userId: result._id,
-    //    token: crypto.randomBytes(32).toString("hex"),
-    // }).save();
-    // const url = `${process.env.BASE_URL}account/${result._id}/verify`;
-    // await sendEmail(result.email, "Verify Email", url);
 
     const jwttoken = jwt.sign({ email: result.email, id: result._id }, "test", {
       expiresIn: "30d",
